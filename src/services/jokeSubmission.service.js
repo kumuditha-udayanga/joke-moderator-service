@@ -2,7 +2,7 @@ import express from "express";
 import axios from "axios";
 import { config } from "./../../config.js";
 
-// get joke (API GET: http://localhost:8081/api/submission/jokes)
+// get jokes from submission microservice
 export const getJokes = async (req, res) => {
     try {
         const response = await axios.get(`${config.SUBMISSION_SERVICE_URL}submission/jokes`)
@@ -12,7 +12,7 @@ export const getJokes = async (req, res) => {
     }
 };
 
-// delete/reject joke (API DELETE: http://localhost:8081/api/submission/jokes/:id)
+// delete/reject joke from submission microservice
 export const deleteJoke = async (req, res) => {
     const {id} = req.params;
     try {

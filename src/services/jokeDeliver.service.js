@@ -2,12 +2,11 @@ import express from "express";
 import axios from "axios";
 import { config } from "../../config.js";
 
-// create new joke in deliver (API: POST /api/deliver/jokes/)
-
+// create new joke in deliver microservice
 export const submitJoke = async (req, res) => {
     try {
         const joke = req.body;
-        console.log(config.DELIVERY_SERVICE_URL);
+        
         if(!joke) {
             res.status(400).json({message: "All fields required"});
         }
@@ -19,7 +18,7 @@ export const submitJoke = async (req, res) => {
     }
 };
 
-// create new joke type in deliver (API: POST /api/deliver/joke-types/)
+// create new joke type in deliver microservice
 export const createJokeType = async (req, res) => {
     try {
         const type = req.body;
